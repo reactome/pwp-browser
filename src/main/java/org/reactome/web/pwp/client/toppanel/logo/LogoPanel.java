@@ -59,7 +59,7 @@ public class LogoPanel extends Composite {
         fp.add(new InlineLabel(Browser.VERSION));
 
         SafeHtml safeHtml = SafeHtmlUtils.fromSafeConstant(fp.toString());
-        Anchor anchor = new Anchor(safeHtml, "https://github.com/reactome-pwp", "_blank");
+        Anchor anchor = new Anchor(safeHtml, "https://github.com/reactome", "_blank");
         anchor.setStyleName(RESOURCES.getCSS().appVersion());
         anchor.setTitle("Pathway Browser version " + Browser.VERSION);
         return anchor;
