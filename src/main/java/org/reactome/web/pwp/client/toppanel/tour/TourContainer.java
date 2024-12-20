@@ -39,7 +39,7 @@ public class TourContainer extends DialogBox implements ClickHandler {
             w = height * 1.7778 + "px";
             h = height + "px";
         }
-        String videoIframe = "<iframe width=\"" + w + "\" height=\"" + h + "\" src=\"https://www.youtube.com/embed/videoseries?si=AsHHK4cqQz1Td37U&amp;list=PLLc8-qElSrCxhMsCVjYIO8OmO-Im_lQ6D\" frameborder=\"0\" allowfullscreen></iframe>";
+        String videoIframe = "<iframe width=\"" + w + "\" height=\"" + h + "\" src=\"https://www.youtube.com/embed/rDXvQcBl3Y0?si=x65KSfsYl-ypb6yK\" frameborder=\"0\" allowfullscreen></iframe>";
         HTMLPanel video =new HTMLPanel(SafeHtmlUtils.fromTrustedString(videoIframe));
         video.setStyleName(RESOURCES.getCSS().video());
 
