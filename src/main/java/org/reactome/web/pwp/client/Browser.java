@@ -17,7 +17,7 @@ import org.reactome.web.pwp.model.client.common.ContentClientHandler;
 import org.reactome.web.pwp.model.client.content.ContentClient;
 import org.reactome.web.pwp.model.client.content.ContentClientError;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -37,7 +37,10 @@ public class Browser implements EntryPoint, ContentClientHandler.DatabaseInfo {
     public static boolean VERBOSE = true;
     private AppController appViewer;
 
-    private List<String> scriptsToLoad = Collections.emptyList();
+    private List<String> scriptsToLoad = Arrays.asList(
+//            "https://www.ebi.ac.uk/gxa/resources/js-bundles/vendorCommons.bundle.js",
+//            "https://www.ebi.ac.uk/gxa/resources/js-bundles/expressionAtlasHeatmapHighcharts.bundle.js"
+    );
 
     /**
      * This is the entry point method.
