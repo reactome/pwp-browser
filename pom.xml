@@ -10,7 +10,7 @@
 
     <groupId>org.reactome.web.pwp</groupId>
     <artifactId>browser</artifactId>
-    <version>3.9.4</version>
+    <version>3.9.5-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>Pathway Portal</name>
