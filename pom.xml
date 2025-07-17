@@ -1,47 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.reactome.web.pwp</groupId>
-    <artifactId>browser</artifactId>
-    <packaging>war</packaging>
-    <version>3.9.4</version>
-
-    <name>Pathway Portal</name>
 
     <parent>
         <groupId>org.reactome.maven</groupId>
         <artifactId>reactome-pwp-parent</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </parent>
 
+    <groupId>org.reactome.web.pwp</groupId>
+    <artifactId>browser</artifactId>
+    <version>3.9.5</version>
+    <packaging>war</packaging>
+
+    <name>Pathway Portal</name>
     <description>
         The Pathway Browser is Reactome’s primary means of viewing and interacting with specific pathways
     </description>
-
+    <url>https://github.com/reactome/pwp-browser</url>
     <organization>
-        <name>The European Bioinformatics Institute</name>
-        <url>https://www.ebi.ac.uk/</url>
+        <name>Reactome</name>
+        <url>https://reactome.org</url>
     </organization>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
     <developers>
         <developer>
             <id>gviteri</id>
             <name>Guilherme Viteri</name>
-            <email>gviteri@ebi.ac.uk</email>
-            <organization>https://www.ebi.ac.uk/</organization>
+            <roles>
+                <role>alumni</role>
+            </roles>
+            <organization>The European Bioinformatics Institute</organization>
+            <organizationUrl>https://www.ebi.ac.uk/</organizationUrl>
         </developer>
         <developer>
             <id>ksidiro</id>
             <name>Kostas Sidiropoulos</name>
+            <roles>
+                <role>alumni</role>
+            </roles>
+            <organization>The European Bioinformatics Institute</organization>
+            <organizationUrl>https://www.ebi.ac.uk/</organizationUrl>
         </developer>
         <developer>
             <id>amundo</id>
+            <name>Antonio Fabregat</name>
+            <roles>
+                <role>alumni</role>
+            </roles>
+            <organization>The European Bioinformatics Institute</organization>
+            <organizationUrl>https://www.ebi.ac.uk/</organizationUrl>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/reactome/pwp-browser.git</connection>
+        <developerConnection>scm:git:ssh://github.com:reactome/pwp-browser.git</developerConnection>
+        <url>https://github.com/reactome/pwp-browser/tree/master</url>
+    </scm>
 
     <properties>
         <!-- Name that will be used to generate the war file -->
@@ -52,7 +74,6 @@
 
         <appModule>org.reactome.web.pwp.Browser</appModule>
         <appName>${appModule}</appName>
-
     </properties>
 
     <dependencies>
@@ -177,11 +198,57 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
+    <repositories>
+
+        <!-- EBI repo -->
+        <repository>
+            <id>nexus-ebi-repo</id>
+            <name>The EBI internal repository</name>
+            <url>https://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-repo/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!-- EBI SNAPSHOT repo -->
+        <repository>
+            <id>nexus-ebi-snapshot-repo</id>
+            <name>The EBI internal snapshot repository</name>
+            <url>https://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>central_1</id>
+            <name>Maven Repository Switchboard</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build><!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
         <finalName>${fileName}</finalName>
-
         <plugins>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
@@ -253,52 +320,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-
-        <!-- EBI repo -->
-        <repository>
-            <id>nexus-ebi-repo</id>
-            <name>The EBI internal repository</name>
-            <url>https://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-repo/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!-- EBI SNAPSHOT repo -->
-        <repository>
-            <id>nexus-ebi-snapshot-repo</id>
-            <name>The EBI internal snapshot repository</name>
-            <url>https://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>central_1</id>
-            <name>Maven Repository Switchboard</name>
-            <url>https://repo1.maven.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
