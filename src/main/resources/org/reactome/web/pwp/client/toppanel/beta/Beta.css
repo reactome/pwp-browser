@@ -1,0 +1,73 @@
+.betaPanel {
+    float: right;
+    margin: 2px 20px 3px 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 3px 8px 0 10px;
+}
+
+.betaPanel>div {
+    color: white;
+    float: left;
+    padding: 6px 8px 0 0;
+}
+
+.betaButton {
+    margin: 0 2px 0 2px;
+    background-color: #58c3e5;
+    border-radius: 5px;
+    color: white;
+    padding: 0;
+    outline: none;
+    border: 1px solid white;
+}
+
+.betaButton:hover {
+    background-color: #1e95cf;
+    cursor: pointer !important;
+}
+
+.betaButton img {
+    height: 30px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+
+    display: block;
+}
+
+.betaButton.animate {
+    animation: pulse 1s ease-in-out 1;
+}
+.betaButton.animate img {
+    animation: rotate 1s ease-in-out 1;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #58c3e5;
+    }
+    25% {
+        background-color: #1e95cf;
+    }
+    50% {
+        background-color: #58c3e5;
+    }
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -80,8 +80,8 @@ public class LayoutSelectorDisplay extends Composite implements LayoutSelector.D
         /**
          * The styles used in this widget.
          */
-        @Source(ResoruceCSS.CSS)
-        ResoruceCSS getCSS();
+        @Source(ResourceCSS.CSS)
+        ResourceCSS getCSS();
 
         @Source("images/layout.png")
         ImageResource layoutIcon();
@@ -91,7 +91,7 @@ public class LayoutSelectorDisplay extends Composite implements LayoutSelector.D
      * Styles used by this widget.
      */
     @CssResource.ImportedWithPrefix("pwp-LayoutSelector")
-    public interface ResoruceCSS extends CssResource {
+    public interface ResourceCSS extends CssResource {
         /**
          * The path to the default CSS styles used by this resource.
          */

@@ -52,6 +52,9 @@ import org.reactome.web.pwp.client.tools.citation.CitationLauncherPresenter;
 import org.reactome.web.pwp.client.tools.launcher.ToolLauncher;
 import org.reactome.web.pwp.client.tools.launcher.ToolLauncherDisplay;
 import org.reactome.web.pwp.client.tools.launcher.ToolLauncherPresenter;
+import org.reactome.web.pwp.client.toppanel.beta.Beta;
+import org.reactome.web.pwp.client.toppanel.beta.BetaDisplay;
+import org.reactome.web.pwp.client.toppanel.beta.BetaPresenter;
 import org.reactome.web.pwp.client.toppanel.layout.LayoutSelector;
 import org.reactome.web.pwp.client.toppanel.layout.LayoutSelectorDisplay;
 import org.reactome.web.pwp.client.toppanel.layout.LayoutSelectorPresenter;
@@ -139,6 +142,9 @@ public class AppController implements BrowserReadyHandler {
         LayoutSelector.Display layoutSelector = new LayoutSelectorDisplay();
         new LayoutSelectorPresenter(eventBus, layoutSelector);
 
+        Beta.Display beta = new BetaDisplay();
+        new BetaPresenter(eventBus, beta);
+
         ToolLauncher.Display toolLauncher = new ToolLauncherDisplay();
         new ToolLauncherPresenter(eventBus, toolLauncher);
 
@@ -148,6 +154,7 @@ public class AppController implements BrowserReadyHandler {
         TourSelector.Display tour = new TourSelectorDisplay();
         new TourSelectorPresenter(eventBus, tour);
 
+
         FlowPanel topPanel = new FlowPanel();
         topPanel.setStyleName("elv-Top-Panel");
         topPanel.add(new LogoPanel(dbInfo));
@@ -155,6 +162,7 @@ public class AppController implements BrowserReadyHandler {
         topPanel.add(layoutSelector);
         topPanel.add(tour);
         topPanel.add(toolLauncher);
+        topPanel.add(beta);
 
         return topPanel;
     }
